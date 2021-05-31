@@ -1,21 +1,21 @@
 package linkedlist
 
-import "log"
+import (
+	"log"
 
-type Node struct {
-	Data int
-	Next *Node
-}
+	"github.com/heops79/data-structure_go/pkg/model"
+)
+
 
 type LinkedList struct {
-	Head *Node
-	Tail *Node
+	Head *model.Node
+	Tail *model.Node
 	Size int
 }
 
-func (l *LinkedList) Search(data int) (pre *Node, found *Node) {
+func (l *LinkedList) Search(data int) (pre *model.Node, found *model.Node) {
 	cur := l.Head
-	var prev *Node
+	var prev *model.Node
 
 	for cur != nil {
 		if cur.Data == data {
@@ -27,7 +27,7 @@ func (l *LinkedList) Search(data int) (pre *Node, found *Node) {
 	return nil, nil
 }
 
-func (l *LinkedList) Remove(data int) *Node {
+func (l *LinkedList) Remove(data int) *model.Node {
 	var prev, found = l.Search(data)
 
 	if found == nil {
@@ -85,8 +85,8 @@ func (l *LinkedList) Prepend(data int) {
 	l.Size++
 }
 
-func createNode(data int) *Node {
-	newNode := Node{
+func createNode(data int) *model.Node {
+	newNode := model.Node{
 		Data: data,
 		Next: nil,
 	}
