@@ -6,7 +6,6 @@ import (
 )
 
 func TestAdd(t *testing.T) {
-
 	var arr Array
 
 	arr.Add(1)
@@ -30,7 +29,6 @@ func TestDisplay(t *testing.T) {
 }
 
 func TestInsert(t *testing.T) {
-
 	var arr Array
 
 	arr.Add(1)

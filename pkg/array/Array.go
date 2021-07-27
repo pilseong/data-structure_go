@@ -2,6 +2,7 @@ package array
 
 import "fmt"
 
+// Array is using slice for base data-structure
 type Array struct {
 	arr []int
 }
@@ -11,11 +12,10 @@ func (a *Array) Add(v int) {
 }
 
 func (a *Array) Display() {
-	fmt.Printf("content start\n")
 	for _, v := range a.arr {
 		fmt.Printf("%v ", v)
 	}
-	fmt.Println("\ncontent end")
+	fmt.Println()
 }
 
 func (a *Array) Insert(i, v int) {
