@@ -4,31 +4,34 @@ import "log"
 
 func Merge(arr []int, l, mid, h int) {
 
-	log.Println(l, mid, h)
 	var i, j, k int
 	var res []int
 
+	i = l
+	j = mid
 
-	for j=mid; i < mid && j < h; k++ {
+	for ; i < mid && j < h; k++ {
 		if arr[i] > arr[j] {
-			res[k] = arr[j]
+			res = append(res, arr[j])
 			j++
 		} else {
-			res[k] = arr[i]
+			res = append(res, arr[i])
 			i++
 		}
 	}
 
-	for i < mid {
-		res[k] = arr[i]
+	if i < mid {
+		res = append(res, arr[i:]...)
 		i++
 		k++
 	}
 
-	for j < h {
-		res[k] = arr[j]
+	if j < h {
+		res = append(res, arr[j:]...)
 		j++
 		k++
 	}
 
+	copy(arr, res)
+	log.Println((arr))
 }
