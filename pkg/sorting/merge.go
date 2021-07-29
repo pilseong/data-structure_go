@@ -2,8 +2,9 @@ package sorting
 
 import "log"
 
-func Merge(arr []int, l, mid, h int) {
-
+// Merge two different sections inside an array
+// one is from [l, mid), another is from [mid, h)
+func Merge(arr []int, l, mid, h int) {	
 	var i, j, k int
 	var res []int
 
@@ -20,18 +21,25 @@ func Merge(arr []int, l, mid, h int) {
 		}
 	}
 
+
+	// slice is totally different from array
 	if i < mid {
-		res = append(res, arr[i:]...)
+		res = append(res, arr[i:mid]...)
 		i++
 		k++
 	}
 
 	if j < h {
-		res = append(res, arr[j:]...)
+		res = append(res, arr[j:h]...)
 		j++
 		k++
 	}
 
-	copy(arr, res)
-	log.Println((arr))
+	log.Println("log", res)
+
+	for i = 0; i < len(res); i++ {
+		arr[l+i] = res[i]
+	}
+
+	// log.Println((arr))
 }
