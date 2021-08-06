@@ -18,7 +18,7 @@ func (l *LinkedList) Search(data int) (pre *model.Node, found *model.Node) {
 	var prev *model.Node
 
 	for cur != nil {
-		if cur.Data == data {
+		if cur.Data.Value == data {
 			return prev, cur
 		}
 		prev = cur
@@ -59,7 +59,7 @@ func (l *LinkedList) Remove(data int) *model.Node {
 	return found
 }
 
-func (l *LinkedList) Append(data int) {
+func (l *LinkedList) Append(data *model.Entry) {
 	var newNode = createNode(data)
 
 	if l.Head == nil && l.Tail == nil {
@@ -72,7 +72,7 @@ func (l *LinkedList) Append(data int) {
 	l.Size++
 }
 
-func (l *LinkedList) Prepend(data int) {
+func (l *LinkedList) Prepend(data *model.Entry) {
 	var newNode = createNode(data)
 
 	if l.Head == nil && l.Tail == nil {
@@ -85,19 +85,19 @@ func (l *LinkedList) Prepend(data int) {
 	l.Size++
 }
 
-func createNode(data int) *model.Node {
-	newNode := model.Node{
+func createNode(data *model.Entry) *model.Node {
+	newNode := &model.Node{
 		Data: data,
 		Next: nil,
 	}
 
-	return &newNode
+	return newNode
 }
 
 func (l *LinkedList) Print() {
 	var cur = l.Head
 	for cur != nil {
-		log.Printf("%v, next: %v", cur, cur.Next)
+		log.Printf("%v, next: %v", cur.Data, cur.Next)
 		cur = cur.Next
 	}
 }

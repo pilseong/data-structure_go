@@ -8,7 +8,7 @@ type Queue struct {
 	Size int
 }
 
-func (q *Queue) Enqueue(data int) bool {
+func (q *Queue) Enqueue(data *model.Entry) bool {
 	var node = &model.Node{
 		Data: data,
 		Next: nil,

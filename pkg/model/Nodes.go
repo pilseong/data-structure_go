@@ -1,8 +1,13 @@
 package model
 
 type Node struct {
-	Data int
+	Data *Entry
 	Next *Node
+}
+
+type Entry struct {
+	Key   string
+	Value int
 }
 
 type TreeNode struct {
