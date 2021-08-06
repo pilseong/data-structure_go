@@ -32,7 +32,7 @@ func (h *Hashtable) Put(key string, value int) {
 	if h.Arr[i] == nil {
 		h.Arr[i] = new(linkedlist.LinkedList)
 	} 
-	h.Arr[i].Append(&model.Entry{key, value})
+	h.Arr[i].Append(&model.Entry{Key: key, Value: value})
 }
 
 func (h *Hashtable) Get(key string) int {

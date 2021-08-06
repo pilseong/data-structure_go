@@ -14,11 +14,11 @@ func Test_linkedlist(t *testing.T) {
 		Tail: nil,
 	}
 
-	linkedList.Append(&model.Entry{"pilseong1", 10})
-	linkedList.Append(&model.Entry{"pilseong2", 20})
-	linkedList.Append(&model.Entry{"pilseong3", 30})
-	linkedList.Prepend(&model.Entry{"pilseong4", 5})
-	linkedList.Prepend(&model.Entry{"pilseong5", 1})
+	linkedList.Append(&model.Entry{Key: "pilseong1", Value: 10})
+	linkedList.Append(&model.Entry{Key: "pilseong2", Value: 20})
+	linkedList.Append(&model.Entry{Key: "pilseong3", Value: 30})
+	linkedList.Prepend(&model.Entry{Key: "pilseong4", Value: 5})
+	linkedList.Prepend(&model.Entry{Key: "pilseong5", Value: 1})
 
 	var _, n = linkedList.Search(5)
 	log.Println(n)
